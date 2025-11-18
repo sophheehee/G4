@@ -1,93 +1,21 @@
-#include <iostream>
-#include <cctype>
-#include <vector>
-#include <iomanip>
-#include <string>
-
-#include "editBook.h"
-#include "lookUp.h"
-#include "bookInfo.h"
-#include "invmenu.h"   // assuming this declares invMenu()
-
-// Truncate long strings for display
-std::string truncString(const std::string& str, std::size_t max)
-{
-    if (str.length() <= max)
-        return str;
-
-    if (max <= 3)
-        return str.substr(0, max);   // safety
-
-    return str.substr(0, max - 3) + "...";
-}
-
-void showRecord(const bookInfo& b)
-{
-    const int MAX = 30;
-
-    std::cout << "\nCurrent record:\n";
-
-    std::cout << "  1) " << std::left << std::setw(17) << "Title:"
-              << truncString(b.getTitle(), MAX) << '\n';
-
-    std::cout << "  2) " << std::left << std::setw(17) << "ISBN:"
-              << truncString(b.getISBN(), MAX) << '\n';
-
-    std::cout << "  3) " << std::left << std::setw(17) << "Author:"
-              << truncString(b.getAuthor(), MAX) << '\n';
-
-    std::cout << "  4) " << std::left << std::setw(17) << "Publisher:"
-              << truncString(b.getPublisher(), MAX) << '\n';
-
-    std::cout << "  5) " << std::left << std::setw(17) << "Date Added:"
-              << truncString(b.getDate(), MAX) << '\n';
-
-    std::cout << "  6) " << std::left << std::setw(17) << "Quantity on Hand:"
-              << b.getQty() << '\n';
-
-    std::cout << "  7) " << std::left << std::setw(17) << "Wholesale:"
-              << b.getWholeCost() << '\n';
-
-    std::cout << "  8) " << std::left << std::setw(17) << "Retail:"
-              << b.getRetailCost() << '\n';
-}
-
-void showEditMenu()
-{
-    std::cout << "\nEdit Book Menu\n"
-              << "  1) Title\n"
-              << "  2) ISBN\n"
-              << "  3) Author\n"
-              << "  4) Publisher\n"
-              << "  5) Date Added\n"
-              << "  6) Quantity on Hand\n"
-              << "  7) Wholesale\n"
-              << "  8) Retail\n"
-              << "  9) Save\n"
-              << "  0) Cancel\n"
-              << "Choice: ";
-}
-
 void editBook(std::vector<bookInfo>& inventory)
 {
+    // 1. If no books, bail immediately
+    if (inventory.empty())
+    {
+        std::cout << "\nNo books in inventory.\n";
+        // optional: pauseEnter();
+        return;
+    }
 
     bool edit = true;
 
     while (edit)
     {
-        int idx = lookUpBook(inventory);
-		  bookInfo original = inventory[idx];
-    	  bookInfo temp = original;
+        // 2. Get index from lookup
+        int idx = lookUpBook(inventory);   // -1 if user cancels / not found
 
-		  if (inventory.empty()) {
-
-        	std::cout << "\nNo books in inventory.";
-        	invMenu(inventory);
-
-			return;
-
-			}
-
+        // 3. Handle not-found / cancel case according to the spec
         if (idx == -1)
         {
             std::cout << "\nBook not found.\n";
@@ -111,14 +39,20 @@ void editBook(std::vector<bookInfo>& inventory)
 
             if (again == 'n')
             {
-                invMenu(inventory);  // go back to inventory menu
+                // return to inventory menu caller
                 return;
             }
             else
             {
-                continue;   // look up another book
+                // go back to lookup another book
+                continue;
             }
         }
+
+        // 4. At this point, idx must be valid
+        //    (lookUpBook should never return any other bad value)
+        bookInfo original = inventory[idx];
+        bookInfo temp = original;
 
         bool done = false; // to exit editing this book
 
@@ -159,7 +93,6 @@ void editBook(std::vector<bookInfo>& inventory)
                 if (s == temp.getISBN())
                     break; // nothing changed
 
-                // check for duplicates (excluding this record)
                 bool dup = false;
                 for (std::size_t i = 0; i < inventory.size(); ++i)
                 {
@@ -315,10 +248,8 @@ void editBook(std::vector<bookInfo>& inventory)
             }
 
             default:
-            {
                 std::cout << "Please choose 0-9.\n";
                 break;
-            }
             }
         }
 
