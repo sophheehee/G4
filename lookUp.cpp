@@ -55,9 +55,7 @@ static void printOneBook(const bookInfo& b, size_t indOne){
 
 
 }
-
-/******************* Search Function ********/
-// as of 11/18 has unified search and can return to main inv menu
+/******************* Search Function FOR LOOK UP ONLY ********/
 void lookUpBook(std::vector<bookInfo>& database){
 		//Clear screen and display header
 		clear(); 
@@ -106,4 +104,79 @@ void lookUpBook(std::vector<bookInfo>& database){
 			printOneBook(database[matches[i]], i+1);
 		}
 		pauseEnter(); 
+}
+
+/******************* Search Function FOR DELETE BOOK REDEFINED ********/
+// as of 11/18 has unified search and can return to main inv menu
+int lookUpBook(std::vector<bookInfo>& database, bool returnIndex){
+		//Clear screen and display header
+		clear(); 
+		displaySearchHeader(); 	
+		
+		//singular input prompt
+		string key = readLine("Enter Title or ISBN to Search (press ENTER to Cancel): "); 
+		if(key.empty()){
+			return -1; //cancels 
+		}
+		
+		//save search matches
+		vector<size_t> matches; 
+		
+		//checks for the unique isbn so theres no diplicates but if not isbn then title
+		int isbnIndex = searchISBN(database, key); 
+		if (isbnIndex != -1){
+			matches.push_back((size_t)isbnIndex);
+		} else{
+				matches = findAllTitles(database, key); 
+			}
+
+			//show the search results
+			clear();
+			cout << "***** SEARCH RESULTS *****\n\n";
+			
+			//if theres no matches
+			if (matches.empty()){
+				cout <<"No books found.\n"; 
+				pauseEnter();
+				return -1; 
+			}
+			
+			
+			// just one match
+		if (matches.size() == 1) {
+        printOneBook(database[matches[0]], 1);
+
+        if (!returnIndex) {
+            pauseEnter();
+            return -1;
+        }
+
+        // ask if user wants to accept this book
+        cout << "Select this book? (y/n): ";
+        string answer = readLine("");
+        if (answer == "y" || answer == "Y") {
+            return matches[0];
+        }
+
+        return -1;
+    }		
+		//more than one match
+	cout << "Found " << matches.size() << " matching book(s):\n";
+    for (size_t i = 0; i < matches.size(); ++i) {
+        printOneBook(database[matches[i]], i + 1);
+    }
+
+    if (!returnIndex) {
+        pauseEnter();
+        return -1;
+    }
+
+    // Ask user which match to pick
+    cout << "0. Cancel\n";
+    int pick = readChoice("Select a book by number: ", 0, matches.size());
+
+    if (pick == 0)
+        return -1;   // cancels
+
+    return matches[pick - 1];   // return the actual vector index
 }

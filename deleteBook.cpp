@@ -8,4 +8,4 @@
 #include <vector>
 #include "deleteBook.h"
 
-int main(){}
+void deleteBook(std::vector<bookInfo>& database){}
