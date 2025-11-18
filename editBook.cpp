@@ -76,13 +76,17 @@ void editBook(std::vector<bookInfo>& inventory)
     while (edit)
     {
         int idx = lookUpBook(inventory);
+			if (idx <0 || idx >=inventory.size()){
+				return; 
+			}	// sophie's slight change to fix return screen crash
+			
 		  bookInfo original = inventory[idx];
     	  bookInfo temp = original;
 
 		  if (inventory.empty()) {
 
         	std::cout << "\nNo books in inventory.";
-        	invMenu(inventory);
+        //	invMenu(inventory);
 
 			return;
 
@@ -111,7 +115,7 @@ void editBook(std::vector<bookInfo>& inventory)
 
             if (again == 'n')
             {
-                invMenu(inventory);  // go back to inventory menu
+                //invMenu(inventory);  // go back to inventory menu
                 return;
             }
             else

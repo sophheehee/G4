@@ -5,6 +5,7 @@
 * Purpose: Main Menu Driver for Bookseller program
 *****************************************************/
 #include <iostream>
+#include <iomanip>
 #include <limits>
 #include "cashier.h"
 #include "invmenu.h"
@@ -67,8 +68,8 @@ int main(){
 
 //Displays Main Menu Header
 void displayMainHeader(){
-		cout <<"SERENDIPITY BOOKSELLERS\n";
-		cout <<"Main Menu\n\n"; 
+		cout <<"*****SERENDIPITY BOOKSELLERS*****\n";
+		cout <<"\t  Main Menu\n\n"; 
 	
 }
 //Displays Menu Options
