@@ -108,7 +108,7 @@ void lookUpBook(std::vector<bookInfo>& database){
 
 /******************* Search Function FOR DELETE BOOK REDEFINED ********/
 // as of 11/18 has unified search and can return to main inv menu
-int lookUpBook(std::vector<bookInfo>& database, bool returnIndex){
+int lookUpBookDEL(std::vector<bookInfo>& database, bool returnIndex){
 		//Clear screen and display header
 		clear(); 
 		displaySearchHeader(); 	

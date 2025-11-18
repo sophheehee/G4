@@ -12,7 +12,7 @@
 
 //Function Prototypes
 void lookUpBook(std::vector<bookInfo>& database); 
-int lookUpBook(std::vector<bookInfo>& database,bool returnIndex); // one that returns the index for delete book
+int lookUpBookDEL(std::vector<bookInfo>& database,bool returnIndex); // one that returns the index for delete book
 
 
 #endif
