@@ -58,7 +58,7 @@ do{
 			cout << "Edit Function Not Available";
 			break; 
 		case 4:
-			cout << "Delete Function Not Available"; 
+			deleteBook(database);  
 			break; 
 		case 5: 
 			//Exit Menu

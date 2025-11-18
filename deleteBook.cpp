@@ -46,9 +46,19 @@ void deleteBook(std::vector<bookInfo>& database){
 		cout <<"****************************************************\n";
 
 		//confirm deletion
-		(use helper function here)
+		char confirm = readYN("Delete this book? (y/n):");
+		if(confirm == 'y' || confirm == 'Y'){
+			database.erase(database.begin() + index);
+			cout << "Book deleted successfully.\n";
+		}else {
+			cout << "\nDeletion has been canceled.\n"; 
+		}
 		
 		// ask if they want to delete another book
+		char repeat =readYN("Delete another book? (y/n): ");
+		if (repeat == 'n' || repeat =='N'){
+				return;
+		}
 
 	}//loop end
 }//function end
