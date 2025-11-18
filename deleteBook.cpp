@@ -31,5 +31,15 @@ void deleteBook(std::vector<bookInfo>& database){
 			return; // to go back to OG inv menu
 		}
 
-	}
-}
+		//show the selection b4 delete
+		clear(); 
+		cout << "Current Book Selection:\n";
+		cout <<"****************************************************\n";
+		// dont forhet to finish the formatting here
+
+		//confirm deletion
+		
+		// ask if they want to delete another book
+
+	}//loop end
+}//function end
