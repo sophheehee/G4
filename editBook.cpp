@@ -82,7 +82,9 @@ void editBook(std::vector<bookInfo>& inventory)
 		  if (inventory.empty()) {
 
         	std::cout << "\nNo books in inventory.";
-        	return invMenu(original);
+        	invMenu(inventory);
+
+			return;
 
 			}
 
@@ -109,7 +111,7 @@ void editBook(std::vector<bookInfo>& inventory)
 
             if (again == 'n')
             {
-                invMenu(original);  // go back to inventory menu
+                invMenu(inventory);  // go back to inventory menu
                 return;
             }
             else

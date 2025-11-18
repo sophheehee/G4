@@ -56,7 +56,7 @@ static void printOneBook(const bookInfo& b, size_t indOne){
 
 }
 /******************* Search Function FOR LOOK UP ONLY ********/
-void lookUpBook(std::vector<bookInfo>& database){
+int lookUpBook(std::vector<bookInfo>& database){
 		//Clear screen and display header
 		clear(); 
 		displaySearchHeader(); 	
