@@ -35,9 +35,18 @@ void deleteBook(std::vector<bookInfo>& database){
 		clear(); 
 		cout << "Current Book Selection:\n";
 		cout <<"****************************************************\n";
-		// dont forhet to finish the formatting here
+		cout << "Title: " << database[index].getTitle() << "\n"
+			  << "ISBN: " <<  database[index].getISBN() << "\n"
+			  << "Author: " << database[index].getAuthor()    << "\n"
+			  << "Publisher: " <<database[index].getPublisher << "\n"
+			  << "Quantity: " <<database[index].getQty() << "\n"
+			  << "Wholesale: " << database[index].getWholeCost() << "\n"
+				<< "Retail: " << database[index].getRetailCost() << "\n"
+				<< "Date: " <<database[index].getDate() << "\n";
+		cout <<"****************************************************\n";
 
 		//confirm deletion
+		(use helper function here)
 		
 		// ask if they want to delete another book
 

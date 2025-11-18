@@ -41,7 +41,22 @@ int readChoice(const std::string& prompt, int min, int max){ //input check
 				return c; 
 		}
 }
-
+char readYN(const std::string& prompt){
+	while(true){
+		cout <<prompt; 
+		string input; 
+		getline(cin, input); 
+		
+		if(input.empty()){
+			continue; 
+		}
+		char c = tolower(input[0]); 
+		if (c=='y' || c== 'n'){
+			return c;
+		}
+		cout << "Please enter Y or N\n";
+}
+}
 
 /********************** String/Line Tools *******************/
 string readLine(const char* prompt){ //reads full line 

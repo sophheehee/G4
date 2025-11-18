@@ -17,6 +17,7 @@ void pauseEnter();
 
 //Input validation and stuff
 int readChoice(const std::string& prompt, int min, int max); 
+char readYN(const std::string& prompt);
 
 //String Tools
 std::string readLine(const char* prompt); 
