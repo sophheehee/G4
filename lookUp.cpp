@@ -1,7 +1,7 @@
 /***************************************************
 * Programmer: Sophia Omar
 * Assignment: G3 -- Add & Look Up Book
-* Due Date: 14 October 2025
+* Due Date: 14 October 2025 (updated 11/18/25)
 * Purpose: Look Up Book Function Implementation
 *****************************************************/
 #include <iostream>
@@ -13,19 +13,11 @@
 using namespace std; 
 
 //Header Functions 
-void displaySearchBy(){
-	cout <<"What would you like to do?\n";
-	cout << "1. Search by Title\n"; 
-	cout << "2. Search by ISBN\n"; 
-	cout << "3. Return to Inventory Menu\n";
-
-}
 void displaySearchHeader(){
 		cout <<"SERENDIPITY BOOKSELLERS\n";
-		cout <<"Inventory Search Menu\n\n"; 
+		cout <<"Inventory Search\n\n"; 
 
 }
-
 /*************************Search Functions *****************/ 
 //SEARCH BY TITLE (case insensitive & substring) 
 static std::vector<size_t> findAllTitles(const std::vector<bookInfo>& database, const std::string& keyRaw) {
@@ -44,7 +36,7 @@ static int searchISBN(const vector<bookInfo>& database, const string& isbn){
 	for(size_t i =0; i <database.size(); ++i){
 		if(database[i].getISBN() ==isbn){
 			return(int)i; }
-	} return-1;
+	} return -1;
 } 
 
 
@@ -64,59 +56,54 @@ static void printOneBook(const bookInfo& b, size_t indOne){
 
 }
 
-/*******************Main driver menu ********/
-void lookUpBook(const vector<bookInfo>& database){
-		int choice; 
- 	do{
-		//Display header
+/******************* Search Function ********/
+// as of 11/18 has unified search and can return to main inv menu
+void lookUpBook(std::vector<bookInfo>& database){
+		//Clear screen and display header
 		clear(); 
-		displaySearchHeader(); 
-		displaySearchBy(); 
-		//get choice
-		choice = readChoice("Enter Choice (1-3):",1,3); 
-
-	//create switch menu
-		switch(choice){
-		case 1:{
-			clear(); 
-			string key = readLine("Enter Title to Search:");
-			auto matches = findAllTitles(database, key); 
-			if(matches.empty()){
-				cout <<"\nNo books found\n";}
-			else{
-				cout <<"\nFound" <<matches.size() <<"matching book(s):\n";
-				cout <<"------------------------------------------------------------\n";
-				for(size_t i = 0; i < matches.size(); ++i){
-					printOneBook(database[matches[i]], i+1); 
-				}
-			}
-			 
-			break; 
+		displaySearchHeader(); 	
+		
+		//singular input prompt
+		string key = readLine("Enter Title or ISBN to Search: "); 
+		if(key.empty()){
+			cout <<"\n\n No Input Entered\n\n";
+			pauseEnter(); 
+			return;
 		}
-		case 2: {
-			//search by isbn
-			clear(); 
-			string key = readLine("Enter ISBN: "); 
-			int index = searchISBN(database, key); 
-			if(index == -1) {
-				cout<< "\n No book with that ISBN. \n"; }
-			else{
-			cout <<"\nMatch:\n------------------------------------------------------------\n";
-			printOneBook(database[(size_t)index], 1);
+		
+		//save search matches
+		vector<size_t> matches; 
+		
+		//checks for the unique isbn so theres no diplicates but if not isbn then title
+		int isbnIndex = searchISBN(database, key); 
+		if (isbnIndex != -1){
+			matches.push_back((size_t)isbnIndex);
+		} else{
+				matches = findAllTitles(database, key); 
 			}
-			 
-			break; 
-			}
-		case 3:  //exit loop
-			break; 
 
-				} 
-
-			if(choice !=3){
+			//show the search results
+			clear();
+			cout << "***** SEARCH RESULTS *****\n\n";
+			
+			//if theres no matches
+			if (matches.empty()){
+				cout <<"No books found.\n"; 
 				pauseEnter();
-				clear();  
+				return; 
 			}
-
-	} while (choice !=3);
-
+			
+			// just one match
+			if(matches.size() ==1){
+				printOneBook(database[matches[0]],1); 
+				pauseEnter();
+				return; 
+			}
+		
+		//more than one match
+		cout << "Found " <<matches.size() << " matching book(s):\n";
+		for(size_t i =0; i <matches.size(); ++i){
+			printOneBook(database[matches[i]], i+1);
+		}
+		pauseEnter(); 
 }
