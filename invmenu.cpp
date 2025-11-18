@@ -14,6 +14,7 @@
 #include "utilities.h"
 #include "addBook.h"
 #include "deleteBook.h"
+#include "editBook.h"
 using namespace std; 
 
 
@@ -56,7 +57,8 @@ do{
 			addBook(database,20);
 			break; 
 		case 3:
-			cout << "Edit Function Not Available";
+			clear();
+ 			editBook(database); 
 			break; 
 		case 4:
 			deleteBook(database);  

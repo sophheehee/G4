@@ -66,7 +66,7 @@ int lookUpBook(std::vector<bookInfo>& database){
 		if(key.empty()){
 			cout <<"\n\n No Input Entered\n\n";
 			pauseEnter(); 
-			return;
+			return -1;
 		}
 		
 		//save search matches
@@ -88,14 +88,14 @@ int lookUpBook(std::vector<bookInfo>& database){
 			if (matches.empty()){
 				cout <<"No books found.\n"; 
 				pauseEnter();
-				return; 
+				return -1; 
 			}
 			
 			// just one match
 			if(matches.size() ==1){
 				printOneBook(database[matches[0]],1); 
 				pauseEnter();
-				return; 
+				return -1; 
 			}
 		
 		//more than one match
@@ -104,6 +104,7 @@ int lookUpBook(std::vector<bookInfo>& database){
 			printOneBook(database[matches[i]], i+1);
 		}
 		pauseEnter(); 
+		return -1; 
 }
 
 /******************* Search Function FOR DELETE BOOK REDEFINED ********/
