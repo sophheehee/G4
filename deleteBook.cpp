@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 #include "deleteBook.h"
-#include "lookUpBook.h"
+#include "lookUp.h"
 #include "utilities.h" 
 using namespace std;
 
@@ -25,7 +25,7 @@ void deleteBook(std::vector<bookInfo>& database){
 		
 		//return the index from lookup
 		int index = lookUpBookDEL(database, true); 
-		if (index = -1){
+		if (index == -1){
 			cout << "No matching book found.\n"; 
 			pauseEnter();
 			return; // to go back to OG inv menu
@@ -38,7 +38,7 @@ void deleteBook(std::vector<bookInfo>& database){
 		cout << "Title: " << database[index].getTitle() << "\n"
 			  << "ISBN: " <<  database[index].getISBN() << "\n"
 			  << "Author: " << database[index].getAuthor()    << "\n"
-			  << "Publisher: " <<database[index].getPublisher << "\n"
+			  << "Publisher: " <<database[index].getPublisher() << "\n"
 			  << "Quantity: " <<database[index].getQty() << "\n"
 			  << "Wholesale: " << database[index].getWholeCost() << "\n"
 				<< "Retail: " << database[index].getRetailCost() << "\n"

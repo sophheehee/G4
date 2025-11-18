@@ -13,6 +13,7 @@
 #include "lookUp.h"
 #include "utilities.h"
 #include "addBook.h"
+#include "deleteBook.h"
 using namespace std; 
 
 

@@ -7,7 +7,8 @@
 #ifndef DELETE_BOOK_H
 #define DELETE_BOOK_H
 
-
+#include <vector>
+#include "bookInfo.h"
 
 // delete book function 
 void deleteBook(std::vector<bookInfo>& database); //note to self do i need to pass this by value since i'm changing database??
