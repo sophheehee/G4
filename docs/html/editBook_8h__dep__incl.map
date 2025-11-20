@@ -1,0 +1,7 @@
+<map id="editBook.h" name="editBook.h">
+<area shape="rect" id="Node000001" title="Declares the editBook function which modifies fields of a selected book record from the inventory." alt="" coords="72,5,156,32"/>
+<area shape="rect" id="Node000002" href="$editBook_8cpp_source.html" title=" " alt="" coords="5,80,103,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,46,66,81,62,78,92,42"/>
+<area shape="rect" id="Node000003" href="$invmenu_8cpp_source.html" title=" " alt="" coords="126,80,222,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,42,166,78,162,81,132,46"/>
+</map>

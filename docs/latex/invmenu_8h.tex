@@ -1,0 +1,102 @@
+\doxysection{invmenu.\+h File Reference}
+\hypertarget{invmenu_8h}{}\label{invmenu_8h}\index{invmenu.h@{invmenu.h}}
+
+
+Declares the inventory menu driver for Serendipity.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}book\+Info.\+h"{}}\newline
+Include dependency graph for invmenu.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{invmenu_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{invmenu_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{invmenu_8h_a5e7c81b97c1cf5b3c938d6fc73622284}{inv\+Menu}} (std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&database)
+\begin{DoxyCompactList}\small\item\em Displays and controls the inventory menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declares the inventory menu driver for Serendipity. 
+
+
+
+Definition in file \mbox{\hyperlink{invmenu_8h_source}{invmenu.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{invmenu_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{invmenu_8h_a5e7c81b97c1cf5b3c938d6fc73622284}\index{invmenu.h@{invmenu.h}!invMenu@{invMenu}}
+\index{invMenu@{invMenu}!invmenu.h@{invmenu.h}}
+\doxysubsubsection{\texorpdfstring{invMenu()}{invMenu()}}
+{\footnotesize\ttfamily \label{invmenu_8h_a5e7c81b97c1cf5b3c938d6fc73622284} 
+void inv\+Menu (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&}]{database}{}\end{DoxyParamCaption})}
+
+
+
+Displays and controls the inventory menu. 
+
+Presents options such as search, add, edit, and delete. Loops until the user chooses to return to the main menu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & Reference to the inventory vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{G2_2invmenu_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{G2_2invmenu_8cpp_source}{invmenu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//Variable\ Declarations}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice;\ \textcolor{comment}{//Menu\ Switch}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ displayInvHeader();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ displayInvList();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Prompt\ for\ input\ }}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ choice\ =\ readChoice(\textcolor{stringliteral}{"{}Enter\ Choice\ (1-\/5):"{}},\ 1,\ 5);\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Menu\ Choice\ }}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(choice)\{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ lookUpBook(database);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ addBook(database,20);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Edit\ Function\ Not\ Available"{}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Delete\ Function\ Not\ Available"{}};\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Exit\ Menu}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 5);\ }
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}

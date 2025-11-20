@@ -1,0 +1,97 @@
+\doxysection{reports.\+cpp}
+\hypertarget{reports_8cpp_source}{}\label{reports_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00001}00001\ \textcolor{comment}{//COPY}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00002}00002\ \textcolor{comment}{/*************************************************}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00003}00003\ \textcolor{comment}{*\ Programmer:\ Sophia\ Omar}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00004}00004\ \textcolor{comment}{*\ Assignment:\ G2\ -\/-\/\ Serendipity\ Menus}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00005}00005\ \textcolor{comment}{*\ Due\ Date:\ 23\ September\ 2025}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00006}00006\ \textcolor{comment}{*\ Purpose:\ Report\ Printing\ \&\ Header/Menu\ Functions}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00007}00007\ \textcolor{comment}{**************************************************/}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}reports.h"{}}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00011}00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00013}00013\ \textcolor{comment}{//Function\ Definitions\ for\ Menu\ and\ Header\ (Sophie)}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00014}00014\ \textcolor{keywordtype}{void}\ displayRepList()\{}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00015}00015\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}What\ would\ you\ like\ to\ do?\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00016}00016\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1.\ Inventory\ Listing\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00017}00017\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}2.\ Inventory\ Wholesale\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00018}00018\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3.\ Inventory\ Retail\ Value\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00019}00019\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}4.\ Listing\ by\ Quantity\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00020}00020\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}5.\ Listing\ by\ Cost\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00021}00021\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}6.\ Listing\ by\ Age\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00022}00022\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}7.\ Return\ to\ Main\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00023}00023\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Your\ Choice\ (1-\/7):\ "{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00026}00026\ \textcolor{keywordtype}{void}\ displayRepHeader()\{}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00027}00027\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}SERENDIPITY\ BOOKSELLERS\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Reports\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00030}00030\ \}\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00031}00031\ \ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00032}00032\ \textcolor{keywordtype}{void}\ reports()\{}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//Variable\ Declarations}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice;\ \textcolor{comment}{//Menu\ Switch}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00036}00036\ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ displayRepHeader();}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ displayRepList();}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Prompt\ for\ input\ }}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ cin\ >>\ choice;\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Menu\ Choice\ }}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(choice)\{}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//repListing()}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//repWholesale()}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//repRetail()}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//repQuantity()}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//repCost()}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//repAge();\ }}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 7:}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//exits\ loop\ \&\ returns\ to\ main\ menu}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Your\ choice\ is\ invalid.\ Please\ enter\ a\ choice\ from\ 1-\/7."{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.get();\ \textcolor{comment}{//\ pauses\ so\ message\ is\ seen\ }}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ !=7)\ \{}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nPress\ Enter\ to\ Continue..."{}};\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore();\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ cin.get();\ \textcolor{comment}{//\ pause\ again\ before\ clearing}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)033[H\(\backslash\)033[2J"{}};}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00078}00078\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 7);\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{reports_8cpp_source_l00092}00092\ }
+
+\end{DoxyCode}

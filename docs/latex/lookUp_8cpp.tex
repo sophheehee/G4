@@ -1,0 +1,217 @@
+\doxysection{look\+Up.\+cpp File Reference}
+\hypertarget{lookUp_8cpp}{}\label{lookUp_8cpp}\index{lookUp.cpp@{lookUp.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}invmenu.\+h"{}}\newline
+{\ttfamily \#include "{}book\+Info.\+h"{}}\newline
+{\ttfamily \#include "{}utilities.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lookUp_8cpp_ade7b8eb15344ad9447d8e177ff1e0dac}{display\+Search\+Header}} ()
+\item 
+int \mbox{\hyperlink{lookUp_8cpp_aca12f51652ba5572a47068c80a57044e}{look\+Up\+Book}} (std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&database)
+\begin{DoxyCompactList}\small\item\em Unified lookup that searches by title (substring, case-\/insensitive) or by ISBN (exact match). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lookUp_8cpp_ab5e45a9532e583f15cd85adac93c35f4}{look\+Up\+Book\+DEL}} (std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&database, bool return\+Index)
+\begin{DoxyCompactList}\small\item\em Alternate lookup used by delete\+Book to force returning an index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{lookUp_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lookUp_8cpp_ade7b8eb15344ad9447d8e177ff1e0dac}\index{lookUp.cpp@{lookUp.cpp}!displaySearchHeader@{displaySearchHeader}}
+\index{displaySearchHeader@{displaySearchHeader}!lookUp.cpp@{lookUp.cpp}}
+\doxysubsubsection{\texorpdfstring{displaySearchHeader()}{displaySearchHeader()}}
+{\footnotesize\ttfamily \label{lookUp_8cpp_ade7b8eb15344ad9447d8e177ff1e0dac} 
+void display\+Search\+Header (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lookUp_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{lookUp_8cpp_source}{look\+Up.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}SERENDIPITY\ BOOKSELLERS\(\backslash\)n"{}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Inventory\ Search\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lookUp_8cpp_aca12f51652ba5572a47068c80a57044e}\index{lookUp.cpp@{lookUp.cpp}!lookUpBook@{lookUpBook}}
+\index{lookUpBook@{lookUpBook}!lookUp.cpp@{lookUp.cpp}}
+\doxysubsubsection{\texorpdfstring{lookUpBook()}{lookUpBook()}}
+{\footnotesize\ttfamily \label{lookUp_8cpp_aca12f51652ba5572a47068c80a57044e} 
+int look\+Up\+Book (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&}]{database}{}\end{DoxyParamCaption})}
+
+
+
+Unified lookup that searches by title (substring, case-\/insensitive) or by ISBN (exact match). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & Reference to the inventory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the matched book, or -\/1 if no match. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{lookUp_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{lookUp_8cpp_source}{look\+Up.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Clear\ screen\ and\ display\ header}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lookUp_8cpp_ade7b8eb15344ad9447d8e177ff1e0dac}{displaySearchHeader}}();\ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//singular\ input\ prompt}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ key\ =\ \mbox{\hyperlink{G2_2utilities_8cpp_a88b79c0a35498c9afa4b07dd67374a3b}{readLine}}(\textcolor{stringliteral}{"{}Enter\ Title\ or\ ISBN\ to\ Search:\ "{}});\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(key.empty())\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n\ No\ Input\ Entered\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//save\ search\ matches}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ vector<size\_t>\ matches;\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//checks\ for\ the\ unique\ isbn\ so\ theres\ no\ diplicates\ but\ if\ not\ isbn\ then\ title}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ isbnIndex\ =\ searchISBN(database,\ key);\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isbnIndex\ !=\ -\/1)\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ matches.push\_back((\textcolor{keywordtype}{size\_t})isbnIndex);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matches\ =\ findAllTitles(database,\ key);\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//show\ the\ search\ results}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}*****\ SEARCH\ RESULTS\ *****\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ theres\ no\ matches}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matches.empty())\{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}No\ books\ found.\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ one\ match}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(matches.size()\ ==1)\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printOneBook(database[matches[0]],1);\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//more\ than\ one\ match}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Found\ "{}}\ <<matches.size()\ <<\ \textcolor{stringliteral}{"{}\ matching\ book(s):\(\backslash\)n"{}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =0;\ i\ <matches.size();\ ++i)\{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ printOneBook(database[matches[i]],\ i+1);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ }
+\DoxyCodeLine{00108\ \}}
+
+\end{DoxyCode}
+\Hypertarget{lookUp_8cpp_ab5e45a9532e583f15cd85adac93c35f4}\index{lookUp.cpp@{lookUp.cpp}!lookUpBookDEL@{lookUpBookDEL}}
+\index{lookUpBookDEL@{lookUpBookDEL}!lookUp.cpp@{lookUp.cpp}}
+\doxysubsubsection{\texorpdfstring{lookUpBookDEL()}{lookUpBookDEL()}}
+{\footnotesize\ttfamily \label{lookUp_8cpp_ab5e45a9532e583f15cd85adac93c35f4} 
+int look\+Up\+Book\+DEL (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&}]{database}{, }\item[{bool}]{return\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Alternate lookup used by delete\+Book to force returning an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & Reference to inventory. \\
+\hline
+{\em return\+Index} & When true, requires the function to always return a valid index or -\/1 on failure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of selection or -\/1 if cancelled. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{lookUp_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{lookUp_8cpp_source}{look\+Up.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Clear\ screen\ and\ display\ header}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lookUp_8cpp_ade7b8eb15344ad9447d8e177ff1e0dac}{displaySearchHeader}}();\ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//singular\ input\ prompt}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ key\ =\ \mbox{\hyperlink{G2_2utilities_8cpp_a88b79c0a35498c9afa4b07dd67374a3b}{readLine}}(\textcolor{stringliteral}{"{}Enter\ Title\ or\ ISBN\ to\ Search\ (press\ ENTER\ to\ Cancel):\ "{}});\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(key.empty())\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ \textcolor{comment}{//cancels\ }}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//save\ search\ matches}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ vector<size\_t>\ matches;\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//checks\ for\ the\ unique\ isbn\ so\ theres\ no\ diplicates\ but\ if\ not\ isbn\ then\ title}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ isbnIndex\ =\ searchISBN(database,\ key);\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isbnIndex\ !=\ -\/1)\{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ matches.push\_back((\textcolor{keywordtype}{size\_t})isbnIndex);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matches\ =\ findAllTitles(database,\ key);\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//show\ the\ search\ results}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}*****\ SEARCH\ RESULTS\ *****\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ theres\ no\ matches}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matches.empty())\{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}No\ books\ found.\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ one\ match}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matches.size()\ ==\ 1)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ printOneBook(database[matches[0]],\ 1);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!returnIndex)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ask\ if\ user\ wants\ to\ accept\ this\ book}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Select\ this\ book?\ (y/n):\ "{}};}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ answer\ =\ \mbox{\hyperlink{G2_2utilities_8cpp_a88b79c0a35498c9afa4b07dd67374a3b}{readLine}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (answer\ ==\ \textcolor{stringliteral}{"{}y"{}}\ ||\ answer\ ==\ \textcolor{stringliteral}{"{}Y"{}})\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ matches[0];}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00163\ \ \ \ \ \}\ \ \ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//more\ than\ one\ match}}
+\DoxyCodeLine{00165\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Found\ "{}}\ <<\ matches.size()\ <<\ \textcolor{stringliteral}{"{}\ matching\ book(s):\(\backslash\)n"{}};}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ matches.size();\ ++i)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ printOneBook(database[matches[i]],\ i\ +\ 1);}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{if}\ (!returnIndex)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ Ask\ user\ which\ match\ to\ pick}}
+\DoxyCodeLine{00176\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}0.\ Cancel\(\backslash\)n"{}};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ pick\ =\ \mbox{\hyperlink{G2_2utilities_8cpp_a6a6760775ce5d007e9c5c9cb8986a2cc}{readChoice}}(\textcolor{stringliteral}{"{}Select\ a\ book\ by\ number:\ "{}},\ 0,\ matches.size());}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{if}\ (pick\ ==\ 0)}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ \ \ \textcolor{comment}{//\ cancels}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ matches[pick\ -\/\ 1];\ \ \ \textcolor{comment}{//\ return\ the\ actual\ vector\ index}}
+\DoxyCodeLine{00183\ \}}
+
+\end{DoxyCode}

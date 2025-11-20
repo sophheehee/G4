@@ -1,0 +1,243 @@
+\doxysection{G2/add\+Book.h File Reference}
+\hypertarget{G2_2addBook_8h}{}\label{G2_2addBook_8h}\index{G2/addBook.h@{G2/addBook.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}book\+Info.\+h"{}}\newline
+{\ttfamily \#include "{}invmenu.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{G2_2addBook_8h_ab831e7cbafcfb22d0a1eda20190b012b}{add\+Book}} (std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&inventory, std\+::size\+\_\+t capacity=20)
+\begin{DoxyCompactList}\small\item\em Adds a new book to the inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{G2_2addBook_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{G2_2addBook_8h_ab831e7cbafcfb22d0a1eda20190b012b}\index{addBook.h@{addBook.h}!addBook@{addBook}}
+\index{addBook@{addBook}!addBook.h@{addBook.h}}
+\doxysubsubsection{\texorpdfstring{addBook()}{addBook()}}
+{\footnotesize\ttfamily \label{G2_2addBook_8h_ab831e7cbafcfb22d0a1eda20190b012b} 
+void add\+Book (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&}]{inventory}{, }\item[{std\+::size\+\_\+t}]{capacity}{ = {\ttfamily 20}}\end{DoxyParamCaption})}
+
+
+
+Adds a new book to the inventory. 
+
+This function interacts with the user to populate all fields of a new \doxylink{classbookInfo}{book\+Info} record (title, author, ISBN, etc.). It performs validation on numeric fields, checks for duplicate ISBNs, and only appends the record to the inventory if the user chooses to save it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & Reference to the vector storing all book records. \\
+\hline
+{\em capacity} & Maximum allowed number of books in the system (default = 20).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily inventory.\+size() \texorpdfstring{$<$}{<}= capacity} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If saved, a fully populated \doxylink{classbookInfo}{book\+Info} record is appended to inventory. 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{addBook_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{addBook_8cpp_source}{add\+Book.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ If\ database\ already\ full,\ bail\ out\ immediately}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (inventory.size()\ >=\ capacity)}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Database\ is\ full.\ No\ more\ books\ can\ be\ added.\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//invMenu(inventory);}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}\ choice\ =\ \textcolor{charliteral}{'\ '};\ \ \ \ \ \ \textcolor{comment}{//\ user\ menu\ choice}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ esc\ =\ \textcolor{charliteral}{'\ '};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Y/N\ when\ leaving}}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ data\_s;\ \ \ \ \ \textcolor{comment}{//\ user\ string\ input}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ data\_i\ =\ 0;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ user\ integer}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ data\_f\ =\ 0.0f;\ \ \ \ \textcolor{comment}{//\ user\ float}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ "{}Pending"{}\ book\ we\ are\ editing\ before\ saving}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classbookInfo}{bookInfo}}\ blank;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ default\ values\ (in\ case\ default\ ctor\ doesn’t)}}
+\DoxyCodeLine{00041\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ada101bd6c12754adf399de1d5e79f7e3}{setTitle}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00042\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a46722b2b7e1aead04ea157941907a114}{setISBN}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00043\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ac3c67765c9c167df06c043c509a65713}{setAuthor}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a0e17ee11072621f46848d45e319eceb4}{setPublisher}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a4c6618a0902c47bd50956d6a7784b1bd}{setDate}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_af5d4356f8817a0e1b7ccf06859d644af}{setQty}}(0);}
+\DoxyCodeLine{00047\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ab449d2cd6b1616b877b4c120d9e91209}{setWholeCost}}(0.0f);}
+\DoxyCodeLine{00048\ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a12215197b6998022a1a81d82b6852080}{setRetailCost}}(0.0f);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ adding\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{while}\ (adding\ \&\&\ inventory.size()\ <\ capacity)}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{addBook_8cpp_a10d7ad723f7cd7131ccf3bd70292477c}{addBookPrint}}(blank,\ inventory);\ \ \ \textcolor{comment}{//\ show\ pending\ +\ DB\ info}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::cin\ >>\ choice;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});\ \ \ \ \ \ \textcolor{comment}{//\ eat\ leftover\ newline}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:\ \textcolor{comment}{//\ Title}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Book\ Title:\ "{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ data\_s);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ada101bd6c12754adf399de1d5e79f7e3}{setTitle}}(data\_s);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:\ \textcolor{comment}{//\ ISBN}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ ISBN:\ "{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ data\_s);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a46722b2b7e1aead04ea157941907a114}{setISBN}}(data\_s);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:\ \textcolor{comment}{//\ Author}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Author:\ "{}};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ data\_s);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ac3c67765c9c167df06c043c509a65713}{setAuthor}}(data\_s);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:\ \textcolor{comment}{//\ Publisher}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Publisher:\ "{}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ data\_s);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a0e17ee11072621f46848d45e319eceb4}{setPublisher}}(data\_s);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:\ \textcolor{comment}{//\ Date}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Date\ (MM/DD/YYYY):\ "{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(std::cin,\ data\_s);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a4c6618a0902c47bd50956d6a7784b1bd}{setDate}}(data\_s);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'6'}:\ \textcolor{comment}{//\ Quantity\ (int\ >=\ 0)}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Quantity\ on\ Hand\ (>=\ 0):\ "{}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::cin\ >>\ data\_i\ \&\&\ data\_i\ >=\ 0)}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ !!\ Please\ enter\ an\ integer\ >=\ 0:\ "{}};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_af5d4356f8817a0e1b7ccf06859d644af}{setQty}}(data\_i);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'7'}:\ \textcolor{comment}{//\ Wholesale\ (float\ >=\ 0.0)}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Wholesale\ Cost\ (>=\ 0.0):\ "{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::cin\ >>\ data\_f\ \&\&\ data\_f\ >=\ 0.0f)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ !!\ Please\ enter\ a\ number\ >=\ 0.0:\ "{}};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ab449d2cd6b1616b877b4c120d9e91209}{setWholeCost}}(data\_f);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'8'}:\ \textcolor{comment}{//\ Retail\ (float\ >=\ 0.0)}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ Retail\ Price\ (>=\ 0.0):\ "{}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::cin\ >>\ data\_f\ \&\&\ data\_f\ >=\ 0.0f)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ !!\ Please\ enter\ a\ number\ >=\ 0.0:\ "{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a12215197b6998022a1a81d82b6852080}{setRetailCost}}(data\_f);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'9'}:\ \textcolor{comment}{//\ Save\ book\ to\ database}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (inventory.size()\ >=\ capacity)}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Database\ is\ full,\ cannot\ save\ new\ book.\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//invMenu(inventory);}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ inventory.push\_back(blank);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reset\ pending\ book\ to\ defaults}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ada101bd6c12754adf399de1d5e79f7e3}{setTitle}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a46722b2b7e1aead04ea157941907a114}{setISBN}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ac3c67765c9c167df06c043c509a65713}{setAuthor}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a0e17ee11072621f46848d45e319eceb4}{setPublisher}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a4c6618a0902c47bd50956d6a7784b1bd}{setDate}}(\textcolor{stringliteral}{"{}NOT\ SET"{}});}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_af5d4356f8817a0e1b7ccf06859d644af}{setQty}}(0);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_ab449d2cd6b1616b877b4c120d9e91209}{setWholeCost}}(0.0f);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ blank.\mbox{\hyperlink{classbookInfo_a12215197b6998022a1a81d82b6852080}{setRetailCost}}(0.0f);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ just\ filled\ the\ DB,\ force\ back\ out\ like\ your\ original\ code}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (inventory.size()\ >=\ capacity)}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Database\ is\ full,\ saving\ entered\ data.\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Press\ ENTER\ to\ continue..."{}};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ invMenu(inventory);}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'0'}:\ \textcolor{comment}{//\ Return\ to\ inventory\ menu}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ esc\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (esc\ !=\ \textcolor{charliteral}{'y'}\ \&\&\ esc\ !=\ \textcolor{charliteral}{'n'})}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Return\ to\ main\ menu?\ (Y/N):\ "{}};}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ esc;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esc\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(std::tolower(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(esc)));}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (esc\ ==\ \textcolor{charliteral}{'y'})}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ invMenu(inventory);}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ choice\ (0-\/9),\ press\ ENTER:"{}};}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin.ignore(1000,\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \}}
+
+\end{DoxyCode}

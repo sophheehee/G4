@@ -1,0 +1,128 @@
+\doxysection{look\+Up.\+cpp}
+\hypertarget{G2_2lookUp_8cpp_source}{}\label{G2_2lookUp_8cpp_source}\index{G2/lookUp.cpp@{G2/lookUp.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00001}00001\ \textcolor{comment}{/***************************************************}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00002}00002\ \textcolor{comment}{*\ Programmer:\ Sophia\ Omar}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00003}00003\ \textcolor{comment}{*\ Assignment:\ G3\ -\/-\/\ Add\ \&\ Look\ Up\ Book}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00004}00004\ \textcolor{comment}{*\ Due\ Date:\ 14\ October\ 2025}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00005}00005\ \textcolor{comment}{*\ Purpose:\ Look\ Up\ Book\ Function\ Implementation}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00006}00006\ \textcolor{comment}{*****************************************************/}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <vector>}\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}invmenu.h"{}}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}bookInfo.h"{}}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}utilities.h"{}}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00013}00013\ \textcolor{keyword}{using\ namespace\ }std;\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00015}00015\ \textcolor{comment}{//Header\ Functions\ }}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00016}00016\ \textcolor{keywordtype}{void}\ displaySearchBy()\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00017}00017\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}What\ would\ you\ like\ to\ do?\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00018}00018\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1.\ Search\ by\ Title\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00019}00019\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}2.\ Search\ by\ ISBN\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00020}00020\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3.\ Return\ to\ Inventory\ Menu\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00023}00023\ \textcolor{keywordtype}{void}\ displaySearchHeader()\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}SERENDIPITY\ BOOKSELLERS\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Inventory\ Search\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00029}00029\ \textcolor{comment}{/*************************Search\ Functions\ *****************/}\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00030}00030\ \textcolor{comment}{//SEARCH\ BY\ TITLE\ (case\ insensitive\ \&\ substring)\ }}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00031}00031\ \textcolor{keyword}{static}\ std::vector<size\_t>\ findAllTitles(\textcolor{keyword}{const}\ std::vector<bookInfo>\&\ database,\ \textcolor{keyword}{const}\ std::string\&\ keyRaw)\ \{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00032}00032\ \ \ \ \ std::vector<size\_t>\ result;}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00033}00033\ \ \ \ \ std::string\ key\ =\ toLowerString(keyRaw);}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ database.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (toLowerString(database[i].getTitle()).find(key)\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(i);}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00042}00042\ \textcolor{comment}{//SEARCH\ BY\ ISBN}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00043}00043\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ searchISBN(\textcolor{keyword}{const}\ vector<bookInfo>\&\ database,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ isbn)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =0;\ i\ <database.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(database[i].getISBN()\ ==isbn)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keywordtype}{int})i;\ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00047}00047\ \ \ \ \ \}\ \textcolor{keywordflow}{return}-\/1;}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00048}00048\ \}\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00051}00051\ \textcolor{comment}{/**************************Print\ Functinos*************************/}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00053}00053\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ printOneBook(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbookInfo}{bookInfo}}\&\ b,\ \textcolor{keywordtype}{size\_t}\ indOne)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ cout\ <<\ indOne\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<b.\mbox{\hyperlink{classbookInfo_aa5a4ed65a797b4f1ea909bea81e77914}{getTitle}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ ISBN:\ "{}}\ \ \ \ \ \ <<\ b.\mbox{\hyperlink{classbookInfo_aa91823f9f1f33794bd05b7fcc08c189f}{getISBN}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ Author:\ "{}}\ \ \ \ <<\ b.\mbox{\hyperlink{classbookInfo_a137450bff89621170ae9b4d54c3e0c47}{getAuthor}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ Publisher:\ "{}}\ <<\ b.\mbox{\hyperlink{classbookInfo_a1233322a3251b932ab3c301ddaae4b24}{getPublisher}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ Qty:\ "{}}\ \ \ \ \ \ \ <<\ b.\mbox{\hyperlink{classbookInfo_ac636fde8127341b68f5731b9b374b728}{getQty}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ Whole:\ \$"{}}\ \ \ \ <<\ b.\mbox{\hyperlink{classbookInfo_ac61b2d63c66d5e4218fe222ab168ac29}{getWholeCost}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ Retail:\ \$"{}}\ \ \ <<\ b.\mbox{\hyperlink{classbookInfo_a58244f978f5d431408db5b37028c4c53}{getRetailCost}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ Date:\ "{}}\ \ \ \ \ \ <<\ b.\mbox{\hyperlink{classbookInfo_a204957db35bf7350b41d21c5aa75a153}{getDate}}()}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00067}00067\ \textcolor{comment}{/*******************Main\ driver\ menu\ ********/}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00068}00068\ \textcolor{keywordtype}{void}\ lookUpBook(\textcolor{keyword}{const}\ vector<bookInfo>\&\ database)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice;\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Display\ header}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ displaySearchHeader();\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ displaySearchBy();\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ choice}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ choice\ =\ readChoice(\textcolor{stringliteral}{"{}Enter\ Choice\ (1-\/3):"{}},1,3);\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//create\ switch\ menu}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(choice)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ key\ =\ readLine(\textcolor{stringliteral}{"{}Enter\ Title\ to\ Search:"{}});}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ matches\ =\ findAllTitles(database,\ key);\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(matches.empty())\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}\(\backslash\)nNo\ books\ found\(\backslash\)n"{}};\}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}\(\backslash\)nFound"{}}\ <<matches.size()\ <<\textcolor{stringliteral}{"{}matching\ book(s):\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ matches.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printOneBook(database[matches[i]],\ i+1);\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ \{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//search\ by\ isbn}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ key\ =\ readLine(\textcolor{stringliteral}{"{}Enter\ ISBN:\ "{}});\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ searchISBN(database,\ key);\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(index\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\ \textcolor{stringliteral}{"{}\(\backslash\)n\ No\ book\ with\ that\ ISBN.\ \(\backslash\)n"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}\(\backslash\)nMatch:\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ printOneBook(database[(\textcolor{keywordtype}{size\_t})index],\ 1);}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \ \textcolor{comment}{//exit\ loop}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(choice\ !=3)\{}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ \ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00120}00120\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=3);}
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{G2_2lookUp_8cpp_source_l00122}00122\ \}}
+
+\end{DoxyCode}

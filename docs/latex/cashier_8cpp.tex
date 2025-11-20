@@ -1,0 +1,155 @@
+\doxysection{cashier.\+cpp File Reference}
+\hypertarget{cashier_8cpp}{}\label{cashier_8cpp}\index{cashier.cpp@{cashier.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}cashier.\+h"{}}\newline
+{\ttfamily \#include "{}utilities.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cashier_8cpp_a9bb412ffb1b3121d2461bf8341877a79}{cashier}} ()
+\begin{DoxyCompactList}\small\item\em Main cashier driver function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cashier_8cpp_a5cc1a1dc9477c8a1d969cc4279214935}{print\+Recipt}} (string date, string title, int qty, string isbn, float price, float sub, float total)
+\item 
+float \mbox{\hyperlink{cashier_8cpp_a35a5c8dfa2cf66a3b734304a4ddb65e8}{calc\+Tot}} (int qty, float price, float \&sub)
+\begin{DoxyCompactList}\small\item\em Calculates the total price of a sale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{cashier_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{cashier_8cpp_a35a5c8dfa2cf66a3b734304a4ddb65e8}\index{cashier.cpp@{cashier.cpp}!calcTot@{calcTot}}
+\index{calcTot@{calcTot}!cashier.cpp@{cashier.cpp}}
+\doxysubsubsection{\texorpdfstring{calcTot()}{calcTot()}}
+{\footnotesize\ttfamily \label{cashier_8cpp_a35a5c8dfa2cf66a3b734304a4ddb65e8} 
+float calc\+Tot (\begin{DoxyParamCaption}\item[{int}]{qty}{, }\item[{float}]{retail}{, }\item[{float \&}]{total}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the total price of a sale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em qty} & Quantity purchased. \\
+\hline
+{\em retail} & Retail price per unit. \\
+\hline
+{\em total} & Reference to the total to be written. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The final total. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cashier_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{cashier_8cpp_source}{cashier.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//multiplies\ price\ of\ item\ by\ ammount\ of\ item\ and\ stores\ value\ in\ subtotal\ variable}}
+\DoxyCodeLine{00105\ \ \ \ \ sub\ =\ qty\ *\ price;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ sub\ +\ (sub\ *\ 0.06);\ \textcolor{comment}{//returns\ the\ calculated\ total\ with\ 6\%\ sales\ tax}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \}}
+
+\end{DoxyCode}
+\Hypertarget{cashier_8cpp_a9bb412ffb1b3121d2461bf8341877a79}\index{cashier.cpp@{cashier.cpp}!cashier@{cashier}}
+\index{cashier@{cashier}!cashier.cpp@{cashier.cpp}}
+\doxysubsubsection{\texorpdfstring{cashier()}{cashier()}}
+{\footnotesize\ttfamily \label{cashier_8cpp_a9bb412ffb1b3121d2461bf8341877a79} 
+int cashier (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main cashier driver function. 
+
+Displays prompts to the user, collects book sale details, computes totals, and prints a formatted receipt.
+
+\begin{DoxyReturn}{Returns}
+Status code (0 on success). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cashier_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{cashier_8cpp_source}{cashier.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{string}\ dte\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//user\ entered\ date}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ qty\ =\ 0;\ \textcolor{comment}{//number\ of\ copies\ being\ purchased}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{string}\ isbn\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//user\ enters\ the\ book's\ ISBN}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{string}\ title\ =\ \textcolor{stringliteral}{"{}"{}};\ \textcolor{comment}{//user\ entered\ book\ title}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ price\ =\ 0;\ \textcolor{comment}{//retail\ price\ of\ book}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ sub\ =\ 0;\ \textcolor{comment}{//subtotal\ value\ gets\ updated\ by\ reference\ in\ calcTot()}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ total\ =\ 0;\ \textcolor{comment}{//total\ price\ of\ purchase}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//asks\ user\ to\ enter\ date\ in\ American\ form\ and\ stores\ value}}
+\DoxyCodeLine{00029\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Please\ enter\ today's\ date\ (MM/DD/YYYY):\ "{}};}
+\DoxyCodeLine{00030\ \ \ \ \ getline(cin,\ dte);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//asks\ user\ to\ enter\ the\ title\ of\ book\ and\ stores\ value}}
+\DoxyCodeLine{00033\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nPlease\ enter\ book's\ title:\ "{}};}
+\DoxyCodeLine{00034\ \ \ \ \ getline(cin,\ title);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//asks\ user\ to\ enter\ book's\ ISBN\ (10\ digits)\ and\ stores\ value}}
+\DoxyCodeLine{00037\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nPlease\ enter\ book's\ ISBN:\ "{}};}
+\DoxyCodeLine{00038\ \ \ \ \ getline(cin,\ isbn);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//asks\ user\ to\ enter\ price\ of\ said\ book\ and\ stores\ value}}
+\DoxyCodeLine{00041\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nPlease\ enter\ book's\ price:\ "{}};}
+\DoxyCodeLine{00042\ \ \ \ \ cin\ >>\ price;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//asks\ user\ to\ enter\ the\ amount\ of\ said\ book\ being\ purchased}}
+\DoxyCodeLine{00045\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nPlease\ enter\ how\ many\ copies:\ "{}};}
+\DoxyCodeLine{00046\ \ \ \ \ cin\ >>\ qty;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ total\ =\ \mbox{\hyperlink{cashier_8cpp_a35a5c8dfa2cf66a3b734304a4ddb65e8}{calcTot}}(qty,\ price,\ sub);\ \textcolor{comment}{//function\ call}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{cashier_8cpp_a5cc1a1dc9477c8a1d969cc4279214935}{printRecipt}}(dte,\ title,\ qty,\ isbn,\ price,\ sub,\ total);\ \textcolor{comment}{//function\ call}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+\Hypertarget{cashier_8cpp_a5cc1a1dc9477c8a1d969cc4279214935}\index{cashier.cpp@{cashier.cpp}!printRecipt@{printRecipt}}
+\index{printRecipt@{printRecipt}!cashier.cpp@{cashier.cpp}}
+\doxysubsubsection{\texorpdfstring{printRecipt()}{printRecipt()}}
+{\footnotesize\ttfamily \label{cashier_8cpp_a5cc1a1dc9477c8a1d969cc4279214935} 
+void print\+Recipt (\begin{DoxyParamCaption}\item[{string}]{date}{, }\item[{string}]{title}{, }\item[{int}]{qty}{, }\item[{string}]{isbn}{, }\item[{float}]{price}{, }\item[{float}]{sub}{, }\item[{float}]{total}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cashier_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{cashier_8cpp_source}{cashier.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//only\ cout\ statements\ for\ formating\ to\ display\ receipt}}
+\DoxyCodeLine{00070\ \ \ \ \ cout\ <<\ \ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n\(\backslash\)n\(\backslash\)n*"{}}\ <<\ setfill(\textcolor{charliteral}{'-\/'})\ <<\ setw(70)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00071\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setfill(\textcolor{charliteral}{'\ '})\ <<\ \ setw(70)\ <<\ \textcolor{stringliteral}{"{}*"{}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*Serendipty\ Book\ Sellers"{}}\ <<\ setw(48)\ <<\ \textcolor{stringliteral}{"{}\ *\ "{}};}
+\DoxyCodeLine{00072\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*Date:\ "{}}\ <<\ date\ <<\ setw(54)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00073\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setw(70)\ <<\ \textcolor{stringliteral}{"{}*"{}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*Qty\ \ \ \ ISBN"{}}\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Title"{}}\ <<\ setw(28)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Price"{}}\ <<\ setw(12)\ <<\ \textcolor{stringliteral}{"{}Total"{}}\ <<\ \textcolor{stringliteral}{"{}\ \ \ *\(\backslash\)n"{}};}
+\DoxyCodeLine{00075\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}*"{}}\ <<\ setfill(\textcolor{charliteral}{'-\/'})\ <<\ setw(70)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00076\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setfill(\textcolor{charliteral}{'\ '})\ <<\ setw(3)\ <<\ qty\ <<\ setw(17)\ <<\ isbn\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ left\ <<\ setw(28)\ <<\ title}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\$"{}}\ <<\ fixed\ <<\ right\ <<\ setprecision(2)\ <<\ setw(8)\ <<\ price\ <<\ setw(4)\ <<\ \textcolor{stringliteral}{"{}\$"{}}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ <<\ setw(7)\ <<\ price\ *\ qty\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00079\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setw(70)\ <<\ \ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00080\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setw(61)\ <<\ \textcolor{stringliteral}{"{}Subtotal\ \ \ \ "{}}\ <<\ \textcolor{stringliteral}{"{}\$"{}}\ <<\ setw(7)\ <<\ sub\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00081\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setw(52)\ <<\ \textcolor{stringliteral}{"{}Tax"{}}\ <<\ setw(10)\ <<\ \textcolor{stringliteral}{"{}\$"{}}\ <<\ setw(7)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ <<\ (qty\ *\ price)\ *\ (0.06)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setw(54)\ <<\ \textcolor{stringliteral}{"{}Total"{}}\ <<\ setw(8)\ <<\ \textcolor{stringliteral}{"{}\$"{}}\ <<\ setw(7)\ <<\ total\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00084\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setw(70)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*\ Thank\ You\ For\ Shopping\ at\ Serendipity!"{}}\ <<\ setw(31)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n*"{}}\ <<\ setfill(\textcolor{charliteral}{'-\/'})\ <<\ setw(70)\ <<\ \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}

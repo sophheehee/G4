@@ -1,0 +1,83 @@
+\doxysection{invmenu.\+cpp}
+\hypertarget{invmenu_8cpp_source}{}\label{invmenu_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00001}00001\ \textcolor{comment}{/***********************************}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00002}00002\ \textcolor{comment}{*\ Programmer:\ Sophia\ Omar}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00003}00003\ \textcolor{comment}{*\ Assignment:\ G3\ -\/\ Add\ \&\ Look\ Up\ Book}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00004}00004\ \textcolor{comment}{*\ Due\ Date:\ 14\ October\ 2025}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00005}00005\ \textcolor{comment}{*\ Purpose:\ Inventory\ Menu\ Function\ }}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00006}00006\ \textcolor{comment}{*\ \ \ \ Definitions}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00007}00007\ \textcolor{comment}{************************************/}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <vector>}\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{invmenu_8h}{invmenu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bookInfo_8h}{bookInfo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lookUp_8h}{lookUp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{addBook_8h}{addBook.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deleteBook_8h}{deleteBook.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{editBook_8h}{editBook.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00018}00018\ \textcolor{keyword}{using\ namespace\ }std;\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00021}00021\ \textcolor{comment}{/********************\ INV\ MENU\ FUNCTIONS\ *************************/}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00022}00022\ \textcolor{comment}{//Function\ Definitions\ for\ Menu\ and\ Header\ }}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00023}00023\ \textcolor{keywordtype}{void}\ displayInvList()\{}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00024}00024\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}What\ would\ you\ like\ to\ do?\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00025}00025\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1.\ Search\ for\ a\ Book\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00026}00026\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}2.\ Add\ a\ Book\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00027}00027\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3.\ Edit\ a\ Book\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00028}00028\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}4.\ Delete\ a\ Book\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00029}00029\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}5.\ Return\ to\ Main\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00032}00032\ \textcolor{keywordtype}{void}\ displayInvHeader()\{}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00033}00033\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}SERENDIPITY\ BOOKSELLERS\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Inventory\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00036}00036\ \}\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00037}00037\ \ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00038}00038\ \textcolor{keywordtype}{void}\ invMenu(std::vector<bookInfo>\&\ database)\{}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//Variable\ Declarations}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice;\ \textcolor{comment}{//Menu\ Switch}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00042}00042\ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ displayInvHeader();}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ displayInvList();}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Prompt\ for\ input\ }}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ choice\ =\ readChoice(\textcolor{stringliteral}{"{}Enter\ Choice\ (1-\/5):"{}},\ 1,\ 5);\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Menu\ Choice\ }}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(choice)\{}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ lookUpBook(database);}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ addBook(database,20);}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ editBook(database);\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ deleteBook(database);\ \ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Exit\ Menu}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00072}00072\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 5);\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{invmenu_8cpp_source_l00078}00078\ }
+
+\end{DoxyCode}

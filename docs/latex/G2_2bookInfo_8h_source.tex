@@ -1,0 +1,73 @@
+\doxysection{book\+Info.\+h}
+\hypertarget{G2_2bookInfo_8h_source}{}\label{G2_2bookInfo_8h_source}\index{G2/bookInfo.h@{G2/bookInfo.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ BOOKINFO\_H}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ BOOKINFO\_H}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00008}00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classbookInfo}{bookInfo}}\ \{}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ std::string\ title;\ \textcolor{comment}{//book's\ title}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ std::string\ isbn;\ \textcolor{comment}{//book's\ ISBN}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ std::string\ author;\ \textcolor{comment}{//book's\ author}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ std::string\ publisher;\ \textcolor{comment}{//\ book's\ publisher}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ std::string\ date;\ \textcolor{comment}{//date\ book\ was\ added}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ qty;\ \textcolor{comment}{//quantity\ of\ book\ on\ hand}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ whole\_cost;\ \textcolor{comment}{//book's\ wholesale\ cost}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ retail\_cost;\ \textcolor{comment}{//\ book's\ retail\ cost}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00023}00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ /***********\ CONSTRUCTORS\ \&\ DESTRUCTORS\ ***********/}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbookInfo_aa1a88f3decfd6d5f653c6fabd82fee15}{bookInfo}}();}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ /***********\ SETTERS\ ***********/}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_ada101bd6c12754adf399de1d5e79f7e3}{setTitle}}(std::string\ t);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_a46722b2b7e1aead04ea157941907a114}{setISBN}}(std::string\ i);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_ac3c67765c9c167df06c043c509a65713}{setAuthor}}(std::string\ a);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_a0e17ee11072621f46848d45e319eceb4}{setPublisher}}(std::string\ p);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_a4c6618a0902c47bd50956d6a7784b1bd}{setDate}}(std::string\ d);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_af5d4356f8817a0e1b7ccf06859d644af}{setQty}}(\textcolor{keywordtype}{int}\ q);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_ab449d2cd6b1616b877b4c120d9e91209}{setWholeCost}}(\textcolor{keywordtype}{float}\ w);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classbookInfo_a12215197b6998022a1a81d82b6852080}{setRetailCost}}(\textcolor{keywordtype}{float}\ r);}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00047}00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ /***********\ GETTERS\ ***********/}}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classbookInfo_aa5a4ed65a797b4f1ea909bea81e77914}{getTitle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classbookInfo_aa91823f9f1f33794bd05b7fcc08c189f}{getISBN}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classbookInfo_a137450bff89621170ae9b4d54c3e0c47}{getAuthor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classbookInfo_a1233322a3251b932ab3c301ddaae4b24}{getPublisher}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classbookInfo_a204957db35bf7350b41d21c5aa75a153}{getDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classbookInfo_ac636fde8127341b68f5731b9b374b728}{getQty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classbookInfo_ac61b2d63c66d5e4218fe222ab168ac29}{getWholeCost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classbookInfo_a58244f978f5d431408db5b37028c4c53}{getRetailCost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00065}00065\ \};}
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{G2_2bookInfo_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -16,10 +16,13 @@ using namespace std;
 void clear(){ //Clears Screen
 	cout << "\033[H\033[2J";
 }
-void pauseEnter(){ //Pauses before continuing loop
-	cout <<"\nPress Enter to Continue...";
-		string x; 
-		getline(cin, x); //this is safer than cin.get supposedly
+void pauseEnter(){ //Pauses before continuing loop // 11/19 updated to be safer
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(),'\n');
+		cout <<"\nPress Enter to Continue...";
+		//string x; 
+		//getline(cin, x);
+		cin.get();  
 }
 
 /************ Validation Tools ****************/

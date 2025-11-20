@@ -1,0 +1,129 @@
+\doxysection{invmenu.\+cpp File Reference}
+\hypertarget{invmenu_8cpp}{}\label{invmenu_8cpp}\index{invmenu.cpp@{invmenu.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}invmenu.\+h"{}}\newline
+{\ttfamily \#include "{}book\+Info.\+h"{}}\newline
+{\ttfamily \#include "{}look\+Up.\+h"{}}\newline
+{\ttfamily \#include "{}utilities.\+h"{}}\newline
+{\ttfamily \#include "{}add\+Book.\+h"{}}\newline
+{\ttfamily \#include "{}delete\+Book.\+h"{}}\newline
+{\ttfamily \#include "{}edit\+Book.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{invmenu_8cpp_a6fb486ab1f293e102b146e02d82c5118}{display\+Inv\+List}} ()
+\item 
+void \mbox{\hyperlink{invmenu_8cpp_af41993a1317ce5807f42e9d25ce7c166}{display\+Inv\+Header}} ()
+\item 
+void \mbox{\hyperlink{invmenu_8cpp_a5e7c81b97c1cf5b3c938d6fc73622284}{inv\+Menu}} (std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&database)
+\begin{DoxyCompactList}\small\item\em Displays and controls the inventory menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{invmenu_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{invmenu_8cpp_af41993a1317ce5807f42e9d25ce7c166}\index{invmenu.cpp@{invmenu.cpp}!displayInvHeader@{displayInvHeader}}
+\index{displayInvHeader@{displayInvHeader}!invmenu.cpp@{invmenu.cpp}}
+\doxysubsubsection{\texorpdfstring{displayInvHeader()}{displayInvHeader()}}
+{\footnotesize\ttfamily \label{invmenu_8cpp_af41993a1317ce5807f42e9d25ce7c166} 
+void display\+Inv\+Header (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{invmenu_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{invmenu_8cpp_source}{invmenu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}SERENDIPITY\ BOOKSELLERS\(\backslash\)n"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Inventory\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \}\ }
+
+\end{DoxyCode}
+\Hypertarget{invmenu_8cpp_a6fb486ab1f293e102b146e02d82c5118}\index{invmenu.cpp@{invmenu.cpp}!displayInvList@{displayInvList}}
+\index{displayInvList@{displayInvList}!invmenu.cpp@{invmenu.cpp}}
+\doxysubsubsection{\texorpdfstring{displayInvList()}{displayInvList()}}
+{\footnotesize\ttfamily \label{invmenu_8cpp_a6fb486ab1f293e102b146e02d82c5118} 
+void display\+Inv\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{invmenu_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{invmenu_8cpp_source}{invmenu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}What\ would\ you\ like\ to\ do?\(\backslash\)n"{}};}
+\DoxyCodeLine{00025\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}1.\ Search\ for\ a\ Book\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00026\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}2.\ Add\ a\ Book\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00027\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3.\ Edit\ a\ Book\(\backslash\)n"{}};}
+\DoxyCodeLine{00028\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}4.\ Delete\ a\ Book\(\backslash\)n"{}};}
+\DoxyCodeLine{00029\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}5.\ Return\ to\ Main\ Menu\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+\Hypertarget{invmenu_8cpp_a5e7c81b97c1cf5b3c938d6fc73622284}\index{invmenu.cpp@{invmenu.cpp}!invMenu@{invMenu}}
+\index{invMenu@{invMenu}!invmenu.cpp@{invmenu.cpp}}
+\doxysubsubsection{\texorpdfstring{invMenu()}{invMenu()}}
+{\footnotesize\ttfamily \label{invmenu_8cpp_a5e7c81b97c1cf5b3c938d6fc73622284} 
+void inv\+Menu (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&}]{database}{}\end{DoxyParamCaption})}
+
+
+
+Displays and controls the inventory menu. 
+
+Presents options such as search, add, edit, and delete. Loops until the user chooses to return to the main menu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & Reference to the inventory vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{invmenu_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{invmenu_8cpp_source}{invmenu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//Variable\ Declarations}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice;\ \textcolor{comment}{//Menu\ Switch}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{invmenu_8cpp_af41993a1317ce5807f42e9d25ce7c166}{displayInvHeader}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{invmenu_8cpp_a6fb486ab1f293e102b146e02d82c5118}{displayInvList}}();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Prompt\ for\ input\ }}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ choice\ =\ \mbox{\hyperlink{G2_2utilities_8cpp_a6a6760775ce5d007e9c5c9cb8986a2cc}{readChoice}}(\textcolor{stringliteral}{"{}Enter\ Choice\ (1-\/5):"{}},\ 1,\ 5);\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Menu\ Choice\ }}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(choice)\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2lookUp_8cpp_a8c6d2b9792235da0d8e180035b4b6c69}{lookUpBook}}(database);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{addBook_8cpp_a576d0427e81bc90d71e29064739b6b4c}{addBook}}(database,20);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{editBook_8cpp_a4a0c7d5dfad6920cbe03d997c510efd3}{editBook}}(database);\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deleteBook_8cpp_aafee2b0cd692040a6e5dda18017414b5}{deleteBook}}(database);\ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Exit\ Menu}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 5);\ }
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}

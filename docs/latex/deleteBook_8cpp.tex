@@ -1,0 +1,111 @@
+\doxysection{delete\+Book.\+cpp File Reference}
+\hypertarget{deleteBook_8cpp}{}\label{deleteBook_8cpp}\index{deleteBook.cpp@{deleteBook.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}delete\+Book.\+h"{}}\newline
+{\ttfamily \#include "{}look\+Up.\+h"{}}\newline
+{\ttfamily \#include "{}utilities.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{deleteBook_8cpp_aee932b1dca6d5934575ef4ba28bebdc7}{display\+Header}} ()
+\item 
+void \mbox{\hyperlink{deleteBook_8cpp_aafee2b0cd692040a6e5dda18017414b5}{delete\+Book}} (std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&database)
+\begin{DoxyCompactList}\small\item\em Deletes a book from the inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{deleteBook_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{deleteBook_8cpp_aafee2b0cd692040a6e5dda18017414b5}\index{deleteBook.cpp@{deleteBook.cpp}!deleteBook@{deleteBook}}
+\index{deleteBook@{deleteBook}!deleteBook.cpp@{deleteBook.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteBook()}{deleteBook()}}
+{\footnotesize\ttfamily \label{deleteBook_8cpp_aafee2b0cd692040a6e5dda18017414b5} 
+void delete\+Book (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbookInfo}{book\+Info}} $>$ \&}]{database}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a book from the inventory. 
+
+This function allows the user to search for a book, select it, display its details, and confirm deletion. If confirmed, the record is erased from the vector and remaining entries shift to fill the gap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & Reference to the inventory vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+If confirmed, inventory shrinks by one entry. 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{deleteBook_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{deleteBook_8cpp_source}{delete\+Book.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deleteBook_8cpp_aee932b1dca6d5934575ef4ba28bebdc7}{displayHeader}}();\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ the\ index\ from\ lookup}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{lookUp_8cpp_ab5e45a9532e583f15cd85adac93c35f4}{lookUpBookDEL}}(database,\ \textcolor{keyword}{true});\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ -\/1)\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}No\ matching\ book\ found.\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2utilities_8cpp_a161fff5cd0ffdf2c33454abdb70b79a7}{pauseEnter}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ to\ go\ back\ to\ OG\ inv\ menu}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//show\ the\ selection\ b4\ delete}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{G2_2mainmenu_8cpp_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Current\ Book\ Selection:\(\backslash\)n"{}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}****************************************************\(\backslash\)n"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Title:\ "{}}\ <<\ database[index].getTitle()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}ISBN:\ "{}}\ <<\ \ database[index].getISBN()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Author:\ "{}}\ <<\ database[index].getAuthor()\ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Publisher:\ "{}}\ <<database[index].getPublisher()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Quantity:\ "{}}\ <<database[index].getQty()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Wholesale:\ "{}}\ <<\ database[index].getWholeCost()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Retail:\ "{}}\ <<\ database[index].getRetailCost()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Date:\ "{}}\ <<database[index].getDate()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}****************************************************\(\backslash\)n"{}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//confirm\ deletion}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ confirm\ =\ \mbox{\hyperlink{utilities_8cpp_a5681d2427cc48a86dcb38948e779476d}{readYN}}(\textcolor{stringliteral}{"{}Delete\ this\ book?\ (y/n):"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(confirm\ ==\ \textcolor{charliteral}{'y'}\ ||\ confirm\ ==\ \textcolor{charliteral}{'Y'})\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ database.erase(database.begin()\ +\ index);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Book\ deleted\ successfully.\(\backslash\)n"{}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDeletion\ has\ been\ canceled.\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ask\ if\ they\ want\ to\ delete\ another\ book}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ repeat\ =\mbox{\hyperlink{utilities_8cpp_a5681d2427cc48a86dcb38948e779476d}{readYN}}(\textcolor{stringliteral}{"{}Delete\ another\ book?\ (y/n):\ "{}});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (repeat\ ==\ \textcolor{charliteral}{'n'}\ ||\ repeat\ ==\textcolor{charliteral}{'N'})\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \}\textcolor{comment}{//loop\ end}}
+\DoxyCodeLine{00064\ \}\textcolor{comment}{//function\ end}}
+
+\end{DoxyCode}
+\Hypertarget{deleteBook_8cpp_aee932b1dca6d5934575ef4ba28bebdc7}\index{deleteBook.cpp@{deleteBook.cpp}!displayHeader@{displayHeader}}
+\index{displayHeader@{displayHeader}!deleteBook.cpp@{deleteBook.cpp}}
+\doxysubsubsection{\texorpdfstring{displayHeader()}{displayHeader()}}
+{\footnotesize\ttfamily \label{deleteBook_8cpp_aee932b1dca6d5934575ef4ba28bebdc7} 
+void display\+Header (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{deleteBook_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{deleteBook_8cpp_source}{delete\+Book.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}SERENDIPITY\ BOOKSELLERS\(\backslash\)n"{}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Delete\ a\ Book\(\backslash\)n\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \}\ }
+
+\end{DoxyCode}
