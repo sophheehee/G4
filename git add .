@@ -1,0 +1,33 @@
+Schoffstoll (7):
+      editBook header and cpp added
+      more work on editBook
+      addBook fixes
+      fixing menus for edit book
+      more edit book changes
+      edit book fixes
+      final edit book changes
+
+Sophia Omar (2):
+      Copy of Working G2 For G4 Updates
+      Copied FILES over from G2
+
+Sophie Omar (18):
+      Initialization
+      Initialization
+      breaking things again lol
+      delete book files added
+      Fixed LookUp as 1 function
+      More fixes to LookUp
+      added to delete func
+      delete function updates
+      Added readYN utility
+      (untested) finished deleteBook)
+      Delete working fully
+      Doxyfile Created
+      Merge branch 'main' of github.com:sophheehee/G4
+      menu issues
+      menu return bug fixes
+      Doxy Comments added to Headers
+      Doxygen made, minor fixes
+      Doxy stuff & minor fixes
+

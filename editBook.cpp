@@ -6,6 +6,7 @@
 #include "editBook.h"
 #include "lookUp.h"
 #include "bookInfo.h"
+#include "utilities.h"      // <-- for clear()
 
 // Truncate long strings for display
 std::string truncString(const std::string& str, std::size_t max)
@@ -72,6 +73,7 @@ void editBook(std::vector<bookInfo>& inventory)
     // 1. If no books, bail immediately
     if (inventory.empty())
     {
+        clear();    // keep experience consistent
         std::cout << "\nNo books in inventory.\n";
         return;
     }
@@ -80,6 +82,9 @@ void editBook(std::vector<bookInfo>& inventory)
 
     while (edit)
     {
+        // Fresh screen for each lookup cycle
+        clear();
+
         // 2. Get index from lookup  (-1 if user cancels / not found)
         int idx = lookUpBookDEL(inventory, true);
 
@@ -132,6 +137,9 @@ void editBook(std::vector<bookInfo>& inventory)
 
         while (!done)
         {
+            // Clear before showing the record + menu so they’re always at the top
+            clear();
+
             showRecord(temp);
             showEditMenu();
 
@@ -346,6 +354,6 @@ void editBook(std::vector<bookInfo>& inventory)
         }
 
         edit = (again == 'y');
+        // On next loop iteration, clear() will run before the next lookup
     }
 }
-
