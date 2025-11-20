@@ -12,6 +12,7 @@ and printing full receipt with calculated subtotal and taxed total
 #include <iomanip>
 #include <string>
 #include "cashier.h"
+#include "utilities.h"
 using namespace std;
 
 int cashier() {
@@ -48,7 +49,7 @@ int cashier() {
 
 	printRecipt(dte, title, qty, isbn, price, sub, total); //function call
 
-
+	
 	return 0;
 }
 /******************* printRecipt() **************************
@@ -64,7 +65,7 @@ styled format
 
 
 void printRecipt(string date, string title, int qty, string isbn, float price, float sub, float total) {
-
+	clear(); 
 	//only cout statements for formating to display receipt
 	cout <<  "\n\n\n\n*" << setfill('-') << setw(70) << "*";
 	cout << "\n*" << setfill(' ') <<  setw(70) << "*" << "\n*Serendipty Book Sellers" << setw(48) << " * ";

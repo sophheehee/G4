@@ -14,6 +14,22 @@ void editBook(std::vector<bookInfo>& inventory)
     {
         // 2. Get index from lookup
         int idx = lookUpBook(inventory);   // -1 if user cancels / not found
+        int idx = lookUpBook(inventory);
+			if (idx <0 || idx >=inventory.size()){
+				return; 
+			}	// sophie's slight change to fix return screen crash
+			
+		  bookInfo original = inventory[idx];
+    	  bookInfo temp = original;
+
+		  if (inventory.empty()) {
+
+        	std::cout << "\nNo books in inventory.";
+        //	invMenu(inventory);
+
+			return;
+
+			}
 
         // 3. Handle not-found / cancel case according to the spec
         if (idx == -1)
@@ -39,7 +55,11 @@ void editBook(std::vector<bookInfo>& inventory)
 
             if (again == 'n')
             {
+
                 // return to inventory menu caller
+
+                //invMenu(inventory);  // go back to inventory menu
+
                 return;
             }
             else

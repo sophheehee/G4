@@ -24,7 +24,7 @@ void addBook(std::vector<bookInfo>& inventory, std::size_t capacity)
     if (inventory.size() >= capacity)
     {
         std::cout << "Database is full. No more books can be added.\n\n";
-        invMenu(inventory);
+        //invMenu(inventory);
         return;
     }
 
@@ -155,7 +155,7 @@ void addBook(std::vector<bookInfo>& inventory, std::size_t capacity)
             if (inventory.size() >= capacity)
             {
                 std::cout << "Database is full, cannot save new book.\n\n";
-                invMenu(inventory);
+                //invMenu(inventory);
                 return;
             }
 
@@ -179,7 +179,7 @@ void addBook(std::vector<bookInfo>& inventory, std::size_t capacity)
                 std::cout << "Database is full, saving entered data.\n\n";
                 std::cout << "Press ENTER to continue...";
                 std::cin.ignore(1000, '\n');
-                invMenu(inventory);
+               // invMenu(inventory);
                 return;
             }
 
@@ -199,7 +199,7 @@ void addBook(std::vector<bookInfo>& inventory, std::size_t capacity)
             if (esc == 'y')
             {
                 clear();
-                invMenu(inventory);
+               // invMenu(inventory);
                 return;
             }
 

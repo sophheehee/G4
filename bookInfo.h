@@ -1,67 +1,105 @@
 #ifndef BOOKINFO_H
 #define BOOKINFO_H
+
 #include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
 
+/**
+ * @file bookInfo.h
+ * @brief Defines the bookInfo class used to store all information for
+ *        a single book record within the Serendipity inventory system.
+ *
+ * The class stores metadata such as title, ISBN, author information,
+ * quantity, and pricing. It provides setters and getters for controlled
+ * access to private member variables.
+ */
+
+/**
+ * @class bookInfo
+ * @brief Represents a single book entry in the Serendipity inventory.
+ *
+ * A bookInfo object stores book metadata including identifying information
+ * (title, author, ISBN), publication information (publisher, date added),
+ * and inventory data (quantity on hand, wholesale and retail prices).
+ */
 class bookInfo {
 
-	private:
+private:
+    std::string title;        ///< Book title
+    std::string isbn;         ///< Book ISBN number
+    std::string author;       ///< Book author's name
+    std::string publisher;    ///< Publisher name
+    std::string date;         ///< Date added to inventory
+    int qty;                  ///< Quantity of copies available
+    float whole_cost;         ///< Wholesale cost per book
+    float retail_cost;        ///< Retail price per book
 
-		std::string title; //book's title
-		std::string isbn; //book's ISBN
-		std::string author; //book's author
-		std::string publisher; // book's publisher
-		std::string date; //date book was added
-		int qty; //quantity of book on hand
-		float whole_cost; //book's wholesale cost
-		float retail_cost; // book's retail cost
+public:
 
-	public:
+    /**
+     * @brief Default constructor initializing all fields to safe defaults.
+     */
+    bookInfo();
 
-		/*********** CONSTRUCTORS & DESTRUCTORS ***********/
+    /** @name Setters */
+    ///@{
 
-		bookInfo();
+    /// @brief Sets the book title.
+    void setTitle(std::string t);
 
-		 
-		/*********** SETTERS ***********/
+    /// @brief Sets the ISBN value.
+    void setISBN(std::string i);
 
+    /// @brief Sets the author name.
+    void setAuthor(std::string a);
 
-		void setTitle(std::string t);
+    /// @brief Sets the publisher name.
+    void setPublisher(std::string p);
 
-		void setISBN(std::string i);
+    /// @brief Sets the date the book was added.
+    void setDate(std::string d);
 
-		void setAuthor(std::string a);
+    /// @brief Sets the quantity on hand.
+    void setQty(int q);
 
-		void setPublisher(std::string p);
+    /// @brief Sets the wholesale price.
+    void setWholeCost(float w);
 
-		void setDate(std::string d);
+    /// @brief Sets the retail price.
+    void setRetailCost(float r);
 
-		void setQty(int q);
+    ///@}
 
-		void setWholeCost(float w);
+    /** @name Getters */
+    ///@{
 
-		void setRetailCost(float r);
+    /// @return The book's title.
+    std::string getTitle() const;
 
-		/*********** GETTERS ***********/
+    /// @return The book's ISBN.
+    std::string getISBN() const;
 
-		std::string getTitle() const;
+    /// @return The author's name.
+    std::string getAuthor() const;
 
-		std::string getISBN() const;
+    /// @return The publisher's name.
+    std::string getPublisher() const;
 
-		std::string getAuthor() const;
+    /// @return The date the book was added.
+    std::string getDate() const;
 
-		std::string getPublisher() const;
+    /// @return The quantity on hand.
+    int getQty() const;
 
-		std::string getDate() const;
+    /// @return The wholesale cost.
+    float getWholeCost() const;
 
-		int getQty() const;
+    /// @return The retail cost.
+    float getRetailCost() const;
 
-		float getWholeCost() const;
-
-		float getRetailCost() const;
-
+    ///@}
 };
 
 #endif
