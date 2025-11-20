@@ -81,7 +81,7 @@ void editBook(std::vector<bookInfo>& inventory)
     while (edit)
     {
         // 2. Get index from lookup  (-1 if user cancels / not found)
-        int idx = lookUpBook(inventory);
+        int idx = lookUpBookDEL(inventory, true);
 
         // 3. Handle not-found / cancel case according to the spec
         if (idx == -1)
